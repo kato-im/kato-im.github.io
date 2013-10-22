@@ -8,6 +8,37 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    (function ($, undefined) {
+      
+      function repoUrl(repo) {
+        return repoUrls[repo.name] || repo.html_url;
+      }
+      
+      function addRepo(repo) {
+        var $item = $("<li>").toLowerCase());
+        var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
+        $link.append($("<h2>").text(repo.name));
+        $item.appendTo("#repos");
+      }
+      
+      function addRepos(repos) {
+        repos = repos || [];
+        
+         var uri = "https://api.github.com/orgs/kato-im/repos?callback=?";
+         
+         $.getJSON(uri, function (result) {
+           addRepos(repos);
+         }
+      
+      }
+      addRepos();
+      
+    })(jQuery);
+    </script>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,6 +69,8 @@
         <aside id="sidebar">
           <p>Kato is a startup based in West Oakland.</p>
           <p>Read about it here: <a href="https://medium.com/i-love-you-san-francisco/5142e32747e8">West Oakland is for Startups</a></p>
+        
+          <ol id="repos"></ol>
         </aside>
       </div>
     </div>
