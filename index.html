@@ -16,7 +16,7 @@
       	$.get('https://api.github.com/orgs/kato-im/repos', function(data){
       		for(var i in data){
       			console.log(data.name);
-      			$("#github-projects").append("Name: " + data.name);
+      			$("#github-projects").append(<li>"Name: " + data.name</li>);
       		}
       	});		
       });
