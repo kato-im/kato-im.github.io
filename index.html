@@ -15,8 +15,7 @@
 			$(document).ready(function(){
 	            $.get('https://api.github.com/orgs/kato-im/repos', function(data){
 	                for(var i in data){
-	                	console.log(data[i].name)
-	                    $("#github-projects").append("Name: " + data[i].name);
+	                    $("#github-projects").append($("<li></li>").html("Name: " + data[i].name));
 	                }
 	            });                
 	        });
@@ -51,7 +50,7 @@
         <aside id="sidebar">
           <p>Kato is a <a href="https://medium.com/i-love-you-san-francisco/5142e32747e8">West Oakland startup.</a></p>
 
-          <li id="github-projects"></li>
+          <ul id="github-projects"></ul>
         </aside>
       </div>
     </div>
