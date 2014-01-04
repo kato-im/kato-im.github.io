@@ -12,9 +12,14 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     
     <script type="text/javascript">
-    	$.get('https://api.github.com/orgs/kato-im/repos', function( data ) {
-    	  console.log(data);
-    	});
+      $(document).ready(function(){
+      	$.get('https://api.github.com/orgs/kato-im/repos', function(data){
+      		for(var i in data){
+      			console.log(data.name);
+      			$("#github-projects").append("Name: " + data.name);
+      		}
+      	});		
+      });
     </script>
 
     <!--[if lt IE 9]>
