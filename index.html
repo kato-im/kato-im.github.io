@@ -11,15 +11,15 @@
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     
-		<script type="text/javascript">
+	<script type="text/javascript">
 			$(document).ready(function(){
 	            $.get('https://api.github.com/orgs/kato-im/repos', function(data){
 	                for(var i in data){
-	                    $("#github-projects").append($("<li></li>").html("Name: " + data[i].name));
+	                    $("#github-projects").append($("<li></li>").html(data[i].name));
 	                }
 	            });                
 	        });
-	  </script>
+	</script>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -48,7 +48,7 @@
         </section>
 
         <aside id="sidebar">
-          <p>Kato is a <a href="https://medium.com/i-love-you-san-francisco/5142e32747e8">West Oakland startup.</a></p>
+          <h3>Open Source Repos</h3>
 
           <ul id="github-projects"></ul>
         </aside>
