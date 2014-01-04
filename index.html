@@ -13,9 +13,9 @@
     
     <script type="text/javascript">
     	$.get('https://api.github.com/orgs/kato-im/repos', function( data ) {
-    	  $( "#github-projects" )
-    	    .append( "Name: " + data.name)
+    	  console.log(data);
     	}, "json" );
+  
     </script>
 
     <!--[if lt IE 9]>
@@ -28,7 +28,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1>Kato Open Source Portal</h1>
+        <h1>Kato Open Source Portal yo</h1>
         <h2>Code and Tools used by the Kato team</h2>
         <a href="https://github.com/kato-im" class="button"><small>Follow me on</small>GitHub</a>
       </div>
